@@ -1,0 +1,276 @@
+
+
+//  WARNING THE SOUND DOES NOT SHUT OFF!!
+//  I had it then I lost it.  
+//	QWER are bass w/circles
+//  ASDF are mids w/squares
+//	ZXCV are high w/triangles
+//  when I rewrote it I lost the volume control for 1,2,& 3
+// 	and it won't shut off.  I worked with Jimmy on it and he couldn't do it
+//  then started trying to use "this." in the code  and so I started over and
+//   this is where I am at...CONFUSED!!
+
+
+// tone of sound
+var freqQ = 400;
+var freqW = 375;
+var freqE = 350;
+var freqR = 325;
+
+var freqA = 300;
+var freqS = 275;
+var freqD = 250;
+var freqF = 225;
+
+var freqZ = 100;
+var freqX = 75;
+var freqC = 60;
+var freqV = 50;
+
+var oscQ, oscW, oscE, oscR, oscA, oscS, oscD, oscF, oscZ, oscX, oscC, oscV;
+var v = 0.5;
+var paintBrush = 'elipse'; // 'triangle' 'square'
+
+
+var playing = false;
+
+function setup() {
+	createCanvas(400, 400);
+	backgroundColor = color(173, 0, 173);
+	textAlign(CENTER);
+	
+	
+	oscQ = new p5.Oscillator();
+	oscQ.setType('triangle');
+	oscQ.freq(freqQ);
+	oscQ.amp(0);
+	oscQ.start();
+	
+	oscW = new p5.Oscillator();
+	oscW.setType('triangle');
+	oscW.freq(freqW);
+	oscW.amp(0);
+	oscW.start();
+	
+	oscE = new p5.Oscillator();
+	oscE.setType('triangle');
+	oscE.freq(freqE);
+	oscE.amp(0);
+	oscQ.start();	
+	
+	oscR = new p5.Oscillator();
+	oscR.setType('triangle');
+	oscR.freq(freqR);
+	oscR.amp(0);
+	oscR.start();
+
+	oscA = new p5.Oscillator();
+	oscA.setType('triangle');
+	oscA.freq(freqA);
+	oscA.amp(0);
+	oscA.start();
+
+	oscS = new p5.Oscillator();
+	oscS.setType('triangle');
+	oscS.freq(freqS);
+	oscS.amp(0);
+	oscS.start();
+
+	oscD = new p5.Oscillator();
+	oscD.setType('triangle');
+	oscD.freq(freqD);
+	oscD.amp(0);
+	oscD.start();
+
+	oscF = new p5.Oscillator();
+	oscF.setType('triangle');
+	oscF.freq(freqF);
+	oscF.amp(0);
+	oscF.start();
+
+  oscZ = new p5.Oscillator();
+	oscZ.setType('triangle');
+	oscZ.freq(freqZ);
+	oscZ.amp(0);
+	oscZ.start();
+
+	oscX = new p5.Oscillator();
+	oscX.setType('triangle');
+	oscX.freq(freqX);
+	oscX.amp(0);
+	oscX.start();
+
+	oscC = new p5.Oscillator();
+	oscC.setType('triangle');
+	oscC.freq(freqC);
+	oscC.amp(0);
+	oscC.start();
+
+	oscV = new p5.Oscillator();
+	oscV.setType('triangle');
+	oscV.freq(freqV);
+	oscV.amp(0);
+	oscV.start();
+	
+}
+
+
+
+function draw() {
+	if (playing) {
+		//background(0, 255, 255); // makes sqr blue
+	} else {
+		//background(255, 255, 255); //makes sqr white
+	}
+	text('Click here,\npress Q,W,E,R,\n or A,S,D,F,\n  or Z/X/C/V\n to play,\nPress 1,2,3,\nto adjust volume', width / 2, 75); //text alignment
+}
+
+
+function keyPressed() {
+	print("got key press for ", key);
+	var osc;
+	if (key == '1') {
+		v = 0.25;
+	} else if (key == '2') {
+		v = 0.5;
+	} else if (key == '3') {
+		v = 0.75;
+
+
+	} else if (key == 'Q') {
+		osc = oscQ;
+		fill(0, 0, 0)
+		paintBrush = 'elipse';
+		print('paintBrush set to ', paintBrush);
+		fill(1, 1, 135)
+		
+	} else if (key == 'W') {
+		osc = oscW;
+		fill(239, 252, 2)
+		paintBrush = 'elipse';
+		print('paintBrush set to ', paintBrush);
+		fill(1, 1, 135)
+		
+	} else if (key == 'E') {
+		osc = oscE;
+		fill(252, 2, 2)
+		paintBrush = 'elipse';
+		print('paintBrush set to ', paintBrush);
+		fill(1, 1, 135)
+
+	} else if (key == 'R') {
+		osc = oscR;
+		fill(2, 18, 247)
+		paintBrush = 'elipse';
+	  print('paintBrush set to ', paintBrush);
+		fill(1, 1, 135)
+		
+	} else if (key == 'A') {
+		osc = oscA;
+		fill(0, 0, 0)
+		paintBrush = 'square';
+		print('paintBrush set to ', paintBrush);
+		
+	} else if (key == 'S') {
+		osc = oscS;
+		fill(239, 252, 2)
+		paintBrush = 'square';
+		print('paintBrush set to ', paintBrush);
+		
+	} else if (key == 'D') {
+		osc = oscD;
+		fill(252, 2, 2)
+		paintBrush = 'square';
+		print('paintBrush set to ', paintBrush);
+		
+	} else if (key == 'F') {
+		osc = oscF;
+		fill(2, 18, 247)
+		paintBrush = 'square';
+		print('paintBrush set to ', paintBrush);
+		
+
+		} else if (key == 'Z') {
+		osc = oscZ;
+		fill(0, 0, 0)
+		paintBrush = 'triangle';
+		print('paintBrush set to ', paintBrush);
+			
+	} else if (key == 'X') {
+		osc = oscX;
+		fill(239, 252, 2)
+		paintBrush = 'triangle';
+		print('paintBrush set to ', paintBrush);
+		
+	} else if (key == 'C') {
+		osc = oscC;
+		fill(252, 2, 2)
+		paintBrush = 'triangle';
+		print('paintBrush set to ', paintBrush);
+		
+	} else if (key == 'V') {
+		osc = oscV;
+		fill(2, 18, 247)
+	  paintBrush = 'triangle';
+		print('paintBrush set to', paintBrush);
+		
+	}
+
+
+	if (osc) {
+		osc.amp(v, 0.1); //volume of sound
+		playing = true;
+		if (paintBrush == 'elipse') {
+			ellipse(random(10, width), random(10, height), random(100));
+			ellipsesize = random(10, 100)
+		} else if (paintBrush == 'square') {
+			rect(random(10, width), random(10, height), random(10, width), random(10, height));
+			rectsize = random(10, 50)
+		} else if (paintBrush == 'triangle') {
+			triangle(random(10, width), random(10, height), random(10, width), random(10, height), random(10, width), random(10, height));
+			ellipsesize = random(10, 50);
+		}
+	
+}
+
+function keyReleased() {
+	print("got key release for ", key);
+	var osc;
+	if (key == 'A') {
+		osc = oscA;
+
+	} else if (key == 'S') {
+		osc = oscS;
+	} else if (key == 'D') {
+		osc = oscD;
+	} else if (key == 'F') {
+		osc = oscF;
+	}
+	if (key == 'Q') {
+		osc = oscQ;
+
+	} else if (key == 'W') {
+		osc = oscW;
+	} else if (key == 'E') {
+		osc = oscE;
+	} else if (key == 'R') {
+		osc = oscR;
+	}
+	
+	if (key == 'Z') {
+		osc = oscZ;
+
+	} else if (key == 'X') {
+		osc = oscX;
+	} else if (key == 'C') {
+		osc = oscC;
+	} else if (key == 'V') {
+		osc = oscV;
+	}
+	
+	if (osc) {
+		osc.amp(0, 0.5);
+		playing = false;
+	}
+}
+}
